@@ -39,26 +39,15 @@ public class ClasseMain {
 		aluno.setDataMatricula(matricula);
 		aluno.setNomeEscola(escola);
 
-		Disciplina disciplina1 = new Disciplina();
-		disciplina1.setDisciplina("Banco de dados");
-		disciplina1.setNota(90);
-
-		Disciplina disciplina2 = new Disciplina();
-		disciplina2.setDisciplina("Matematica");
-		disciplina2.setNota(80);
-
-		Disciplina disciplina3 = new Disciplina();
-		disciplina3.setDisciplina("Dados");
-		disciplina3.setNota(97);
-		
-		Disciplina disciplina4 = new Disciplina();
-		disciplina4.setDisciplina("Java");
-		disciplina4.setNota(80);
-		
-		aluno.getDisciplina().add(disciplina1);
-		aluno.getDisciplina().add(disciplina2);
-		aluno.getDisciplina().add(disciplina3);
-		aluno.getDisciplina().add(disciplina4);
+		for(int i = 1; i <= 4; i++) {
+			String nomeDisciplina = JOptionPane.showInputDialog("Disciplina " + i + ": ");
+			String notaDisciplina = JOptionPane.showInputDialog("Nota " + i + ": ");
+			Disciplina disciplina = new Disciplina();
+			disciplina.setDisciplina(nomeDisciplina);
+			disciplina.setNota(Double.valueOf(notaDisciplina));
+			
+			aluno.getDisciplina().add(disciplina);
+		}
 		
 
 		System.out.println("Nome = " + aluno.getNome());
