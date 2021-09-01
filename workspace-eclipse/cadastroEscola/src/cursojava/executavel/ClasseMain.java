@@ -17,7 +17,7 @@ public class ClasseMain {
 
 		for (int qtd = 0; qtd <= 1; qtd++) {
 
-			String nome = JOptionPane.showInputDialog("Digite o nome do Aluno" +qtd+": ");
+			String nome = JOptionPane.showInputDialog("Digite o nome do Aluno" + qtd + ": ");
 			String idade = JOptionPane.showInputDialog("Idade");
 			String dataNascimento = JOptionPane.showInputDialog("Data de Nascimento");
 			String rg = JOptionPane.showInputDialog("RG: ");
@@ -69,22 +69,51 @@ public class ClasseMain {
 					continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover? ");
 				}
 			}
-			
+
 			alunos.add(aluno);
 
 		}
-		
+		/*Remover Aluno da lista*/
 		for (Aluno aluno2 : alunos) {
-			System.out.println(aluno2);
-			System.out.println("Idade = " + aluno2.getIdade());
-			System.out.println("Data de Nascimento = " + aluno2.getDataNascimento());
-			System.out.println("Média = " + aluno2.getMediaNota());
-			System.out.println("Resultado = " + (aluno2.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
-			System.out.println("-----------------------------------------------------------");
+
+			if (aluno2.getNome().equalsIgnoreCase("Joao")) {
+				aluno2.remove(aluno2);
+				break;
+			}else {
+				System.out.println(aluno2);
+				System.out.println("Idade = " + aluno2.getIdade());
+				System.out.println("Data de Nascimento = " + aluno2.getDataNascimento());
+				System.out.println("Média = " + aluno2.getMediaNota());
+				System.out.println("Resultado = " + (aluno2.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
+				System.out.println("-----------------------------------------------------------");
+			}
 
 		}
 		
-		
+		/*Localizar aluno*/
+		/*for (Aluno aluno2 : alunos) {
+
+			if (aluno2.getNome().equalsIgnoreCase("Joao")) {
+				System.out.println(aluno2);
+				System.out.println("Idade = " + aluno2.getIdade());
+				System.out.println("Data de Nascimento = " + aluno2.getDataNascimento());
+				System.out.println("Média = " + aluno2.getMediaNota());
+				System.out.println("Resultado = " + (aluno2.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
+				System.out.println("-----------------------------------------------------------");
+				break;
+			}
+
+		}*/
+
+		for (Aluno aluno2 : alunos) {
+			System.out.println("Alunos na lista");
+			System.out.println(aluno2.getNome());
+			System.out.println("Disciplinas: ");
+			for(Disciplina disciplina : aluno2.getDisciplina()) {
+				System.out.println(disciplina.getDisciplina());
+			}
+			
+		}
 	}
 
 }
