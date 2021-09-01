@@ -39,23 +39,30 @@ public class ClasseMain {
 		aluno.setDataMatricula(matricula);
 		aluno.setNomeEscola(escola);
 
-		for(int i = 1; i <= 4; i++) {
+		for (int i = 1; i <= 4; i++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Disciplina " + i + ": ");
 			String notaDisciplina = JOptionPane.showInputDialog("Nota " + i + ": ");
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
-			
+
 			aluno.getDisciplina().add(disciplina);
 		}
-		
+
 		int escolha = JOptionPane.showConfirmDialog(null, "Daseja remover alguma disciplina? ");
+		int posicao = 1;
 		
-		if(escolha == 0) {
-			String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3 ou 4 ?");
-			aluno.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() -1);
+		if (escolha == 0) {/* sim = a Zero */
+			
+
+			int continuarRemover = 0;
+			while (continuarRemover == 0) {
+				String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3 ou 4 ?");
+				aluno.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+				posicao ++;
+				continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover? ");
+			}
 		}
-		
 
 		System.out.println("Nome = " + aluno.getNome());
 		System.out.println("Idade = " + aluno.getIdade());
