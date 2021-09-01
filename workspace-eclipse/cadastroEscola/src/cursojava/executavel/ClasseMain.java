@@ -49,6 +49,13 @@ public class ClasseMain {
 			aluno.getDisciplina().add(disciplina);
 		}
 		
+		int escolha = JOptionPane.showConfirmDialog(null, "Daseja remover alguma disciplina? ");
+		
+		if(escolha == 0) {
+			String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3 ou 4 ?");
+			aluno.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() -1);
+		}
+		
 
 		System.out.println("Nome = " + aluno.getNome());
 		System.out.println("Idade = " + aluno.getIdade());
