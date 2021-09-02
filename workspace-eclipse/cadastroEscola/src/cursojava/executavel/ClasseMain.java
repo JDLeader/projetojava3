@@ -74,9 +74,44 @@ public class ClasseMain {
 
 		}
 		
-		/* Percorrendo listas pelas posições*/
+		/* Trocando aluno na lista*/
 		
 		for(int pos = 0; pos < alunos.size(); pos ++) {
+			
+			Aluno alunoSub = alunos.get(pos);
+			
+			if (alunoSub.getNome().equalsIgnoreCase("João")) {
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("Matematica");
+				disciplina.setNota(96);
+				
+				trocar.getDisciplina().add(disciplina);
+				
+				alunos.set(pos, trocar);
+				alunoSub = alunos.get(pos);
+				
+			}
+			
+			System.out.println("Aluno = " + alunoSub.getNome());
+			System.out.println("Media do Aluno = " + alunoSub.getMediaNota());
+			System.out.println("resultado = "+ alunoSub.getAlunoAprovado2());
+			
+			for(int posd = 0; posd < alunoSub.getDisciplina().size(); posd ++) {
+				Disciplina disc = alunoSub.getDisciplina().get(posd);
+				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());
+				
+			/*for (Disciplina disc : aluno.getDisciplina()) {
+				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());*/
+			
+			}
+		
+		
+		/* Percorrendo listas pelas posições*/
+		
+		/*for(int pos = 0; pos < alunos.size(); pos ++) {
 			
 			Aluno aluno = alunos.get(pos);
 			System.out.println("Aluno = " + aluno.getNome());
@@ -137,4 +172,4 @@ public class ClasseMain {
 		 */
 	}
 
-}
+
