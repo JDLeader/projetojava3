@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.constantes.StatusAluno;
 
 public class ClasseMain {
 
@@ -14,11 +15,16 @@ public class ClasseMain {
 		// TODO Auto-generated method stub
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+		List<Aluno> alunosRecuperação = new ArrayList<Aluno>();
+		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 
-		for (int qtd = 0; qtd <= 1; qtd++) {
+
+		for (int qtd = 0; qtd <= 5; qtd++) {
 
 			String nome = JOptionPane.showInputDialog("Digite o nome do Aluno" + qtd + ": ");
-			String idade = JOptionPane.showInputDialog("Idade");
+			/*String idade = JOptionPane.showInputDialog("Idade");
 			String dataNascimento = JOptionPane.showInputDialog("Data de Nascimento");
 			String rg = JOptionPane.showInputDialog("RG: ");
 			String cpf = JOptionPane.showInputDialog("CPF: ");
@@ -26,7 +32,7 @@ public class ClasseMain {
 			String pai = JOptionPane.showInputDialog("Nome do Pai: ");
 			String serie = JOptionPane.showInputDialog("Qual a serie: ");
 			String matricula = JOptionPane.showInputDialog("Matricula: ");
-			String escola = JOptionPane.showInputDialog("Nome da Escola: ");
+			String escola = JOptionPane.showInputDialog("Nome da Escola: ");*/
 
 			Aluno aluno = new Aluno();
 
@@ -35,7 +41,7 @@ public class ClasseMain {
 			 * new Aluno("João Daniel", "01/01/2011");
 			 */
 
-			aluno.setNome(nome);
+			/*aluno.setNome(nome);
 			aluno.setIdade(Integer.valueOf(idade));
 			aluno.setDataNascimento(dataNascimento);
 			aluno.setRegistroGeral(rg);
@@ -44,9 +50,9 @@ public class ClasseMain {
 			aluno.setNomePai(pai);
 			aluno.setSerieMatriculado(serie);
 			aluno.setDataMatricula(matricula);
-			aluno.setNomeEscola(escola);
+			aluno.setNomeEscola(escola);*/
 
-			for (int i = 1; i <= 4; i++) {
+			for (int i = 1; i <= 1; i++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Disciplina " + i + ": ");
 				String notaDisciplina = JOptionPane.showInputDialog("Nota " + i + ": ");
 				Disciplina disciplina = new Disciplina();
@@ -74,9 +80,35 @@ public class ClasseMain {
 
 		}
 		
+		for (Aluno aluno : alunos) {
+			if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
+				alunosAprovados.add(aluno);
+			}else 
+				if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
+					alunosRecuperação.add(aluno);
+				}else if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.REPROVADO)){
+					alunosReprovados.add(aluno);
+				}
+		}
+		
+		System.out.println("Lista dos aprovados");
+		for (Aluno aluno : alunosAprovados) {
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2() + " com media de = " + aluno.getMediaNota());
+		}
+		
+		System.out.println("Lista dos reprovados");
+		for (Aluno aluno : alunosReprovados) {
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2() + " com media de = " + aluno.getMediaNota());
+		}
+		
+		System.out.println("Lista de Recuperação");
+		for (Aluno aluno : alunosRecuperação) {
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2() + " com media de = " + aluno.getMediaNota());
+
+			
 		/* Trocando aluno na lista*/
 		
-		for(int pos = 0; pos < alunos.size(); pos ++) {
+		/*for(int pos = 0; pos < alunos.size(); pos ++) {
 			
 			Aluno alunoSub = alunos.get(pos);
 			
@@ -104,9 +136,9 @@ public class ClasseMain {
 				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());
 				
 			/*for (Disciplina disc : aluno.getDisciplina()) {
-				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());*/
+				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());
 			
-			}
+			}*/
 		
 		
 		/* Percorrendo listas pelas posições*/
@@ -126,8 +158,11 @@ public class ClasseMain {
 				System.out.println("Materia = " + disc.getDisciplina() + "Nota = " + disc.getNota());*/
 			
 			}
-					
-		}
+				
+	}
+}
+		
+		
 		
 		
 		/* Remover Aluno da lista 
@@ -170,6 +205,6 @@ public class ClasseMain {
 		 * 
 		 * }
 		 */
-	}
+	
 
 
