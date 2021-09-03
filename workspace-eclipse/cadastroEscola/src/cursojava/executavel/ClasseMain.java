@@ -7,7 +7,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
 
 public class ClasseMain {
@@ -18,9 +20,11 @@ public class ClasseMain {
 		/*Validação de permissão de acesso simples*/
 		String login = JOptionPane.showInputDialog("Insira login");
 		String senha = JOptionPane.showInputDialog("Insira sua senha");
-		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
-
-			List<Aluno> alunos = new ArrayList<Aluno>();
+		
+				
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {/*travar o contrato para autorizar 100% legitimo*/
+		
+		List<Aluno> alunos = new ArrayList<Aluno>();
 
 			/* Lista onde que temos uma chave que identifica uma sequiencia de valores */
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
@@ -173,9 +177,12 @@ public class ClasseMain {
 				 */
 
 			}
+			
+		}else {
+		JOptionPane.showMessageDialog(null, "Acesso nao permitido");
 
-		}
 	}
+}
 
 }
 

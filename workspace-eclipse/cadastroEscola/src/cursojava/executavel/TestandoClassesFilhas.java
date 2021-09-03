@@ -37,7 +37,8 @@ public class TestandoClassesFilhas {
 		System.out.println("Salario do secretario = " + secretario.salario());
 
 		/*
-		 * Pessoa pessoa = new Aluno(); pessoa = secretario;
+		 * Pessoa pessoa = new Aluno();
+		 * pessoa = secretario;
 		 */
 
 		teste(aluno);
