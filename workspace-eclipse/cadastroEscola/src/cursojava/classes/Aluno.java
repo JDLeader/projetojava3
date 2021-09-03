@@ -136,4 +136,10 @@ public class Aluno extends Pessoa {
 	public String mensagemMaiorIdade() {
 		return this.pessoaMaiorIdade() ? "Aluno maior de Idade" :"Aluno menor de idade";
 		}
+	
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 1500.55;
+	}
 }
