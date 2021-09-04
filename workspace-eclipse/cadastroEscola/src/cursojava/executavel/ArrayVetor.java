@@ -19,18 +19,39 @@ public class ArrayVetor {
 		
 		
 		Disciplina disciplina = new Disciplina();
-		disciplina.setDisciplina("Disciplina Java: ");
+		disciplina.setDisciplina("Java: ");
 		disciplina.setNota(notas);
 		
 		aluno.getDisciplina().add(disciplina);
 		
 		Disciplina disciplina2 = new Disciplina();
-		disciplina2.setDisciplina("Disciplina Lógica: ");
+		disciplina2.setDisciplina("Lógica: ");
 		disciplina2.setNota(notasLogica);
 		
 		aluno.getDisciplina().add(disciplina2);
 		
-		System.out.println("Nome do Aluno = " + aluno.getNome() + " - Inscrito no Curso: " + aluno.getNomeEscola());
+		Aluno[] arrayAlunos = new Aluno[1];
+		
+		arrayAlunos[0] = aluno;
+		
+		for(int pos = 0; pos < arrayAlunos.length; pos++) {
+			
+			System.out.println("Nome do Aluno: " + arrayAlunos[pos].getNome());
+			
+			for(Disciplina d: arrayAlunos[pos].getDisciplina()) {
+				System.out.println("Disciplina: " + d.getDisciplina());
+				
+				for(int posnota = 0; posnota < d.getNota().length; posnota++) {
+					System.out.println("Nota: " + posnota + " = " + d.getNota()[posnota]);
+					
+				}
+			}
+			
+		}
+		
+		
+		/*codigo para descobrir maior e menor nota
+		/*System.out.println("Nome do Aluno = " + aluno.getNome() + " - Inscrito no Curso: " + aluno.getNomeEscola());
 		System.out.println("\n ----- Disciplinas-----");
 		
 		for(Disciplina d : aluno.getDisciplina()) {
