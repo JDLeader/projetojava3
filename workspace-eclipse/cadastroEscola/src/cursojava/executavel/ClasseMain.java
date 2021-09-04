@@ -1,10 +1,13 @@
 package cursojava.executavel;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+
+
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Diretor;
@@ -17,6 +20,9 @@ public class ClasseMain {
 	public static void main(String[] args) {
 		
 		try {
+			
+			
+			
 		// TODO Auto-generated method stub
 
 		/*Validação de permissão de acesso simples*/
@@ -35,33 +41,38 @@ public class ClasseMain {
 			List<Aluno> alunosRecuperação = new ArrayList<Aluno>();
 			List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 
-			for (int qtd = 0; qtd <= 1; qtd++) {
+			for (int qtd = 1; qtd <= 2; qtd++) {
 
-				String nome = JOptionPane.showInputDialog("Digite o nome do Aluno" + qtd + ": ");
-				/*
-				 * String idade = JOptionPane.showInputDialog("Idade"); String dataNascimento =
-				 * JOptionPane.showInputDialog("Data de Nascimento"); String rg =
-				 * JOptionPane.showInputDialog("RG: "); String cpf =
-				 * JOptionPane.showInputDialog("CPF: "); String mae =
-				 * JOptionPane.showInputDialog("Nome da Mãe: "); String pai =
-				 * JOptionPane.showInputDialog("Nome do Pai: "); String serie =
-				 * JOptionPane.showInputDialog("Qual a serie: "); String matricula =
-				 * JOptionPane.showInputDialog("Matricula: "); String escola =
-				 * JOptionPane.showInputDialog("Nome da Escola: ");
+				String nome = JOptionPane.showInputDialog("Digite o nome do Aluno: " + qtd);
+				String idade = JOptionPane.showInputDialog("Idade"); 
+				
+				/* String dataNascimento = JOptionPane.showInputDialog("Data de Nascimento");
+				 * String rg = JOptionPane.showInputDialog("RG: "); 
+				 * String cpf = JOptionPane.showInputDialog("CPF: "); 
+				 * String mae = JOptionPane.showInputDialog("Nome da Mãe: "); 
+				 * String pai = JOptionPane.showInputDialog("Nome do Pai: "); 
+				 * String serie = JOptionPane.showInputDialog("Qual a serie: "); 
+				 * String matricula = JOptionPane.showInputDialog("Matricula: "); 
+				 * String escola = JOptionPane.showInputDialog("Nome da Escola: ");
 				 */
-
-				Aluno aluno = new Aluno();
-
+				
 				/*
 				 * Codigo não utilizado exemplo para inserção casos especiais Aluno alunoVip =
 				 * new Aluno("João Daniel", "01/01/2011");
 				 */
 
-				/*
-				 * aluno.setNome(nome); aluno.setIdade(Integer.valueOf(idade));
-				 * aluno.setDataNascimento(dataNascimento); aluno.setRegistroGeral(rg);
-				 * aluno.setNumeroCPF(cpf); aluno.setNomeMae(mae); aluno.setNomePai(pai);
-				 * aluno.setSerieMatriculado(serie); aluno.setDataMatricula(matricula);
+				Aluno aluno = new Aluno();
+				
+				aluno.setNome(nome); 
+				aluno.setIdade(Integer.valueOf(idade));
+				 
+				 /* aluno.setDataNascimento(dataNascimento); 
+				 * aluno.setRegistroGeral(rg);
+				 * aluno.setNumeroCPF(cpf); 
+				 * aluno.setNomeMae(mae); 
+				 * aluno.setNomePai(pai);
+				 * aluno.setSerieMatriculado(serie); 
+				 * aluno.setDataMatricula(matricula);
 				 * aluno.setNomeEscola(escola);
 				 */
 
@@ -83,13 +94,13 @@ public class ClasseMain {
 					int continuarRemover = 0;
 					while (continuarRemover == 0) {
 						String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3 ou 4 ?");
-						aluno.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+						System.out.println(aluno.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao));
 						posicao++;
 						continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover? ");
 					}
 				}
-
-				alunos.add(aluno);
+				
+			alunos.add(aluno);
 
 			}
 
@@ -109,20 +120,24 @@ public class ClasseMain {
 
 			System.out.println("Lista dos aprovados");
 			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
+				System.out.println("Aluno: " + aluno.getNome());
 				System.out.println(
-						"Resultado = " + aluno.getAlunoAprovado2() + " com media de = " + aluno.getMediaNota());
+						"Resultado = " + aluno.getAlunoAprovado2() + " com media = " + aluno.getMediaNota());
 			}
 
 			System.out.println("Lista dos reprovados");
 			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
+				System.out.println("Aluno: " + aluno.getNome());
 				System.out.println(
-						"Resultado = " + aluno.getAlunoAprovado2() + " com media de = " + aluno.getMediaNota());
+						"Resultado = " + aluno.getAlunoAprovado2() + " com media = " + aluno.getMediaNota());
 			}
 
 			System.out.println("Lista de Recuperação");
 			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
+				System.out.println("Aluno: " + aluno.getNome());
 				System.out.println(
-						"Resultado = " + aluno.getAlunoAprovado2() + " com media de = " + aluno.getMediaNota());
+						"Resultado = " + aluno.getAlunoAprovado2() + " com media = " + aluno.getMediaNota());
+				}
 
 				/* Trocando aluno na lista */
 
@@ -178,30 +193,40 @@ public class ClasseMain {
 				 * disc.getNota());
 				 */
 
-			}
+			
 			
 		}else {
-		JOptionPane.showMessageDialog(null, "Acesso nao permitido");
+			JOptionPane.showMessageDialog(null, "Acesso nao permitido");
 
 	}
-		}catch (Exception e) {
+		}catch (NumberFormatException e) {
 			StringBuilder saida = new StringBuilder();
 			
 			e.printStackTrace();
-			System.out.println(" Mensagem: " + e.getMessage());
-			for(int i = 0; i <= e.getStackTrace().length; i++) {
+			
+			System.out.println("Mensagem: " + e.getMessage());
+			
+			for(int i = 0; i < e.getStackTrace().length; i++) {
 				saida.append("\n Classe de erro : " + e.getStackTrace()[i].getClassName());
-				saida.append(" Classe de erro : " + e.getStackTrace()[i].getMethodName());
-				saida.append(" Classe de erro : " + e.getStackTrace()[i].getLineNumber());
-				saida.append(" Classe de erro : " + e.getClass().getName());
+				saida.append(" Metodo com erro : " + e.getStackTrace()[i].getMethodName());
+				saida.append(" Linha com erro : " + e.getStackTrace()[i].getLineNumber());
+				saida.append(" Classe  erro : " + e.getClass().getName());
 			}
 			
-			JOptionPane.showMessageDialog(null,"erro ao processar notas " + e.getMessage());
+			JOptionPane.showMessageDialog(null,"erro de conversão de numero " + e.getMessage());
 			
+		}catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Null pointer exception : " + e.getClass());
+		}catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado : " + e.getClass().getName());
+		}finally {
+			JOptionPane.showMessageDialog(null, "Obrigado por aprender java comigo");
 		}
 }
+	}
 
-}
+
 
 /*
  * Remover Aluno da lista for (Aluno aluno2 : alunos) {
