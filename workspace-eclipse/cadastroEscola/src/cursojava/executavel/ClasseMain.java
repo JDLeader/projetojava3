@@ -15,6 +15,8 @@ import cursojava.constantes.StatusAluno;
 public class ClasseMain {
 
 	public static void main(String[] args) {
+		
+		try {
 		// TODO Auto-generated method stub
 
 		/*Validação de permissão de acesso simples*/
@@ -33,7 +35,7 @@ public class ClasseMain {
 			List<Aluno> alunosRecuperação = new ArrayList<Aluno>();
 			List<Aluno> alunosReprovados = new ArrayList<Aluno>();
 
-			for (int qtd = 0; qtd <= 5; qtd++) {
+			for (int qtd = 0; qtd <= 1; qtd++) {
 
 				String nome = JOptionPane.showInputDialog("Digite o nome do Aluno" + qtd + ": ");
 				/*
@@ -182,6 +184,21 @@ public class ClasseMain {
 		JOptionPane.showMessageDialog(null, "Acesso nao permitido");
 
 	}
+		}catch (Exception e) {
+			StringBuilder saida = new StringBuilder();
+			
+			e.printStackTrace();
+			System.out.println(" Mensagem: " + e.getMessage());
+			for(int i = 0; i <= e.getStackTrace().length; i++) {
+				saida.append("\n Classe de erro : " + e.getStackTrace()[i].getClassName());
+				saida.append(" Classe de erro : " + e.getStackTrace()[i].getMethodName());
+				saida.append(" Classe de erro : " + e.getStackTrace()[i].getLineNumber());
+				saida.append(" Classe de erro : " + e.getClass().getName());
+			}
+			
+			JOptionPane.showMessageDialog(null,"erro ao processar notas " + e.getMessage());
+			
+		}
 }
 
 }
