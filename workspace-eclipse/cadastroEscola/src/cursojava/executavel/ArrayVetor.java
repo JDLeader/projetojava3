@@ -2,12 +2,70 @@ package cursojava.executavel;
 
 import javax.swing.JOptionPane;
 
+import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
+
 public class ArrayVetor {
 
 	public static void main(String[] args) {
 
+		double[] notas = {8.8,9.9,7.5,7.0};
+		double[] notasLogica = {7.1,5.7,9.6,7.8};
 		
 		
+		Aluno aluno = new Aluno();
+		aluno.setNome("João");
+		aluno.setNomeEscola("JDEV");
+		
+		
+		Disciplina disciplina = new Disciplina();
+		disciplina.setDisciplina("Disciplina Java: ");
+		disciplina.setNota(notas);
+		
+		aluno.getDisciplina().add(disciplina);
+		
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Disciplina Lógica: ");
+		disciplina2.setNota(notasLogica);
+		
+		aluno.getDisciplina().add(disciplina2);
+		
+		System.out.println("Nome do Aluno = " + aluno.getNome() + " - Inscrito no Curso: " + aluno.getNomeEscola());
+		System.out.println("\n ----- Disciplinas-----");
+		
+		for(Disciplina d : aluno.getDisciplina()) {
+			
+			System.out.println("\n" + d.getDisciplina());
+						
+			double notaMax = 0.0;
+			double notaMin = 0.0;
+			
+			for(int pos = 0; pos < d.getNota().length; pos++) {
+				System.out.println("Nota " + (pos + 1) + " igual = " + d.getNota()[pos]);
+				
+				if(pos == 0) {
+					notaMax = d.getNota()[pos];
+					notaMin = d.getNota()[pos];
+					
+				}else {
+					if(d.getNota()[pos] > notaMax)  {
+						notaMax = d.getNota()[pos];
+					}else {
+						
+					if(d.getNota()[pos] < notaMin){ 
+						notaMin = d.getNota()[pos];
+				}
+					}
+					
+				
+			}
+			}
+				System.out.println("A maior nota da disciplina = " + d.getDisciplina() + " é de valor : " + notaMax);
+				System.out.println("A menor nota da disciplina = " + d.getDisciplina() + " é de valor : " + notaMin);
+			
+			}
+		
+		/*
 		
 		String[] valores = new String[4];
 		
@@ -19,12 +77,7 @@ public class ArrayVetor {
 		for (int pos = 0; pos < valores.length; pos++) {
 			System.out.println(+pos+ " -- " + valores[pos]);
 		}
-		
-		
-		
-		
-		
-		
+				
 		
 		/*
 		/* Array pode ser de todos os tipos de dados 
@@ -44,5 +97,7 @@ public class ArrayVetor {
 			System.out.println(+ (i + 1) + " " + notas[i]);
 		}*/
 	}
+	}
 
-}
+
+
