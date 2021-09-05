@@ -1,4 +1,4 @@
-package crso.java.thread;
+package curso.java.thread;
 
 import javax.swing.JOptionPane;
 
