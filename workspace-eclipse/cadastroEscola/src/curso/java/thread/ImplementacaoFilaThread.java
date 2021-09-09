@@ -14,6 +14,7 @@ public class ImplementacaoFilaThread extends Thread {
 
 	@Override
 	public void run() {
+		System.out.println("-------------------");
 		System.out.println("Fila rodando");
 
 
